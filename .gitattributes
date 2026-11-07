@@ -1,0 +1,83 @@
+# ==============================================================================
+# FileMate — Git Attributes & Secret Security Enforcement
+# ==============================================================================
+
+# Set default behavior to automatically normalize line endings to LF
+* text=auto eol=lf
+
+# ------------------------------------------------------------------------------
+# 1. Secrets & Credentials Protection (OWASP LLM02 Security Hardening)
+# Prevent secrets, keys, and live .env files from ever diffing, merging, or exporting
+# ------------------------------------------------------------------------------
+.env                  -diff -merge export-ignore
+*.env                 -diff -merge export-ignore
+*.env.*               -diff -merge export-ignore
+backend/.env          -diff -merge export-ignore
+frontend/.env         -diff -merge export-ignore
+*.key                 -diff -merge export-ignore
+*.pem                 -diff -merge export-ignore
+*.cert                -diff -merge export-ignore
+*.crt                 -diff -merge export-ignore
+*.pfx                 -diff -merge export-ignore
+*.p12                 -diff -merge export-ignore
+id_rsa*               -diff -merge export-ignore
+
+# ------------------------------------------------------------------------------
+# 2. Whitelist Safe Environment Templates
+# Explicitly allow safe .env.example templates to be diffed and tracked
+# ------------------------------------------------------------------------------
+.env.example          diff merge text eol=lf
+*.env.example         diff merge text eol=lf
+backend/.env.example  diff merge text eol=lf
+frontend/.env.example diff merge text eol=lf
+
+# ------------------------------------------------------------------------------
+# 3. Code & Text File Normalization (Cross-Platform macOS / Linux / Windows)
+# ------------------------------------------------------------------------------
+*.py                  text diff=python eol=lf
+*.ts                  text eol=lf
+*.tsx                 text eol=lf
+*.js                  text eol=lf
+*.jsx                 text eol=lf
+*.json                text eol=lf
+*.md                  text eol=lf
+*.html                text eol=lf
+*.css                 text eol=lf
+*.svg                 text eol=lf
+*.yaml                text eol=lf
+*.yml                 text eol=lf
+*.toml                text eol=lf
+*.txt                 text eol=lf
+*.sh                  text eol=lf
+
+# ------------------------------------------------------------------------------
+# 4. Binary Media & Database Files (Prevent git corruption)
+# ------------------------------------------------------------------------------
+*.png                 binary
+*.jpg                 binary
+*.jpeg                binary
+*.webp                binary
+*.ico                 binary
+*.pdf                 binary
+*.woff                binary
+*.woff2               binary
+*.ttf                 binary
+*.db                  binary
+*.sqlite              binary
+*.sqlite3             binary
+db/filemate.db        binary -text
+
+# ------------------------------------------------------------------------------
+# 5. Executable & Application Binaries (Block Diffs, Merges & Export)
+# ------------------------------------------------------------------------------
+*.exe                 binary -diff -merge export-ignore
+*.apk                 binary -diff -merge export-ignore
+*.aab                 binary -diff -merge export-ignore
+*.msi                 binary -diff -merge export-ignore
+*.dmg                 binary -diff -merge export-ignore
+*.pkg                 binary -diff -merge export-ignore
+*.ipa                 binary -diff -merge export-ignore
+*.deb                 binary -diff -merge export-ignore
+*.rpm                 binary -diff -merge export-ignore
+*.dll                 binary -diff -merge export-ignore
+*.dylib               binary -diff -merge export-ignore

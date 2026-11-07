@@ -1,0 +1,348 @@
+{
+  "approval_run": [
+    {
+      "timestamp": "2026-11-06T12:05:42.871315",
+      "event_type": "RUN_STARTED",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "employee_id": "E1042",
+      "request_text": "Uber trip from Airport T2 to Brightpath client office. Fare 1,250 INR. Date: 28 Oct 2026. Project ATLAS."
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.872485",
+      "event_type": "AGENT_RUN_INITIATED",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "employee_id": "E1042",
+      "details": "User request received: Uber trip from Airport T2 to Brightpath client office. Fare 1,250 INR. Date: 28 Oct 2026. Project ATLAS."
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.891875",
+      "event_type": "HUMAN_APPROVAL_EXECUTED",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "employee_id": "E1042",
+      "details": "Action 9aa7fc3d-df16-436a-bd52-4f8c3c93baf0 approved and executed. Report ID: RPT-96563"
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.879624",
+      "event_type": "TOOL_CALL",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "tool_name": "get_project_details",
+      "arguments": {
+        "project_code": "ATLAS"
+      },
+      "result": {
+        "code": "ATLAS",
+        "name": "Project Atlas Core",
+        "status": "Active",
+        "budget_remaining": 240000.0
+      },
+      "status": "SUCCESS",
+      "latency_ms": 0
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.880678",
+      "event_type": "TOOL_CALL",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "tool_name": "get_expense_policy",
+      "arguments": {},
+      "result": [
+        {
+          "category": "Meals",
+          "limit_amount": 1500.0,
+          "limit_type": "per_day",
+          "rule_description": "Maximum \u20b91,500 per day. Alcohol is not reimbursable.",
+          "currency": "INR"
+        },
+        {
+          "category": "Local Travel",
+          "limit_amount": 3000.0,
+          "limit_type": "per_trip",
+          "rule_description": "Maximum \u20b93,000 per trip. Taxi, rideshare, metro allowed.",
+          "currency": "INR"
+        },
+        {
+          "category": "Hotel",
+          "limit_amount": 7000.0,
+          "limit_type": "per_night",
+          "rule_description": "Maximum \u20b97,000 per night. Itemised bill required.",
+          "currency": "INR"
+        },
+        {
+          "category": "Client Entertainment",
+          "limit_amount": null,
+          "limit_type": "none",
+          "rule_description": "No fixed limit. Pre-approval ID required.",
+          "currency": "INR"
+        }
+      ],
+      "status": "SUCCESS",
+      "latency_ms": 0
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.882018",
+      "event_type": "TOOL_CALL",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "tool_name": "get_employee_reports",
+      "arguments": {
+        "employee_id": "E1042"
+      },
+      "result": [
+        {
+          "id": "7242cb43-caed-48f6-94dc-a1b265e1a68e",
+          "report_number": "RPT-10001",
+          "employee_id": "E1042",
+          "status": "submitted",
+          "total_amount": 980.0,
+          "currency": "INR",
+          "created_at": "2026-11-06T11:53:36.069080",
+          "submitted_at": "2026-10-27T18:00:00",
+          "lines": [
+            {
+              "id": "fb60a636-2e0f-47a2-b099-3c0606c94861",
+              "date": "2026-10-27",
+              "merchant": "Cafe Express Lunch",
+              "category": "Meals",
+              "amount": 980.0,
+              "currency": "INR",
+              "project_code": "ATLAS",
+              "notes": "Team lunch working session",
+              "exception_flag": false,
+              "justification": null
+            }
+          ]
+        }
+      ],
+      "status": "SUCCESS",
+      "latency_ms": 0
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.885029",
+      "event_type": "PENDING_ACTION_CREATED",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "action_id": "9aa7fc3d-df16-436a-bd52-4f8c3c93baf0",
+      "action_type": "add_line",
+      "exact_payload": {
+        "date": "28 Oct 2026",
+        "merchant": "Uber",
+        "category": "Local Travel",
+        "amount": 1250.0,
+        "currency": "INR",
+        "project_code": "ATLAS",
+        "notes": "Uber trip from Airport T2 to Brightpath client office. Fare 1,250 INR. Date: 28 Oct 2026. Project ATLAS.",
+        "justification": null
+      },
+      "payload_hash": "3e980c8bf2ac6fd24ed0ebe68d132744093ae6fe96f49fa87bf3496380c463d5",
+      "status": "EXECUTED",
+      "exception_flag": false,
+      "policy_violation_details": null,
+      "expires_at": "2026-11-06T12:15:42.885029"
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.888261",
+      "event_type": "HUMAN_APPROVAL",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "action_id": "9aa7fc3d-df16-436a-bd52-4f8c3c93baf0",
+      "decision": "APPROVED",
+      "justification": null,
+      "executed_at": "2026-11-06T12:05:42.891167",
+      "execution_result": {
+        "report_id": "abf01174-35e7-45a5-b287-a862d36f101f",
+        "report_number": "RPT-96563",
+        "line_id": "525483f7-bf13-4c85-892b-589e0bf42fc5",
+        "status": "submitted",
+        "amount": 1250.0,
+        "currency": "INR",
+        "message": "Expense report successfully created, line added, and submitted to Finance."
+      }
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.887255",
+      "event_type": "RUN_COMPLETED",
+      "trace_id": "f394af96-f433-482b-ba9b-27ea54aaca18",
+      "final_status": "Approved",
+      "total_latency_ms": 15,
+      "total_tokens": 400,
+      "report_id": "RPT-96563",
+      "outcome_summary": "Expense filed successfully. Report ID: RPT-96563"
+    }
+  ],
+  "rejection_run": [
+    {
+      "timestamp": "2026-11-06T12:05:42.895172",
+      "event_type": "RUN_STARTED",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "employee_id": "E1042",
+      "request_text": "Cafe Mocha lunch, 2 x veg thali, 760 INR. 29 Oct 2026. Project ATLAS."
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.895470",
+      "event_type": "AGENT_RUN_INITIATED",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "employee_id": "E1042",
+      "details": "User request received: Cafe Mocha lunch, 2 x veg thali, 760 INR. 29 Oct 2026. Project ATLAS."
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.905929",
+      "event_type": "HUMAN_APPROVAL_REJECTED",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "employee_id": "E1042",
+      "details": "Action 35a4f991-c39d-454e-9a18-d8a52058ef9a was rejected by E1042. Reason: Expense claimed on another client card"
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.900570",
+      "event_type": "TOOL_CALL",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "tool_name": "get_project_details",
+      "arguments": {
+        "project_code": "ATLAS"
+      },
+      "result": {
+        "code": "ATLAS",
+        "name": "Project Atlas Core",
+        "status": "Active",
+        "budget_remaining": 240000.0
+      },
+      "status": "SUCCESS",
+      "latency_ms": 0
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.901190",
+      "event_type": "TOOL_CALL",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "tool_name": "get_expense_policy",
+      "arguments": {},
+      "result": [
+        {
+          "category": "Meals",
+          "limit_amount": 1500.0,
+          "limit_type": "per_day",
+          "rule_description": "Maximum \u20b91,500 per day. Alcohol is not reimbursable.",
+          "currency": "INR"
+        },
+        {
+          "category": "Local Travel",
+          "limit_amount": 3000.0,
+          "limit_type": "per_trip",
+          "rule_description": "Maximum \u20b93,000 per trip. Taxi, rideshare, metro allowed.",
+          "currency": "INR"
+        },
+        {
+          "category": "Hotel",
+          "limit_amount": 7000.0,
+          "limit_type": "per_night",
+          "rule_description": "Maximum \u20b97,000 per night. Itemised bill required.",
+          "currency": "INR"
+        },
+        {
+          "category": "Client Entertainment",
+          "limit_amount": null,
+          "limit_type": "none",
+          "rule_description": "No fixed limit. Pre-approval ID required.",
+          "currency": "INR"
+        }
+      ],
+      "status": "SUCCESS",
+      "latency_ms": 0
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.902011",
+      "event_type": "TOOL_CALL",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "tool_name": "get_employee_reports",
+      "arguments": {
+        "employee_id": "E1042"
+      },
+      "result": [
+        {
+          "id": "abf01174-35e7-45a5-b287-a862d36f101f",
+          "report_number": "RPT-96563",
+          "employee_id": "E1042",
+          "status": "submitted",
+          "total_amount": 1250.0,
+          "currency": "INR",
+          "created_at": "2026-11-06T12:05:42.888803",
+          "submitted_at": "2026-11-06T12:05:42.890815",
+          "lines": [
+            {
+              "id": "525483f7-bf13-4c85-892b-589e0bf42fc5",
+              "date": "28 Oct 2026",
+              "merchant": "Uber",
+              "category": "Local Travel",
+              "amount": 1250.0,
+              "currency": "INR",
+              "project_code": "ATLAS",
+              "notes": "Uber trip from Airport T2 to Brightpath client office. Fare 1,250 INR. Date: 28 Oct 2026. Project ATLAS.",
+              "exception_flag": false,
+              "justification": null
+            }
+          ]
+        },
+        {
+          "id": "7242cb43-caed-48f6-94dc-a1b265e1a68e",
+          "report_number": "RPT-10001",
+          "employee_id": "E1042",
+          "status": "submitted",
+          "total_amount": 980.0,
+          "currency": "INR",
+          "created_at": "2026-11-06T11:53:36.069080",
+          "submitted_at": "2026-10-27T18:00:00",
+          "lines": [
+            {
+              "id": "fb60a636-2e0f-47a2-b099-3c0606c94861",
+              "date": "2026-10-27",
+              "merchant": "Cafe Express Lunch",
+              "category": "Meals",
+              "amount": 980.0,
+              "currency": "INR",
+              "project_code": "ATLAS",
+              "notes": "Team lunch working session",
+              "exception_flag": false,
+              "justification": null
+            }
+          ]
+        }
+      ],
+      "status": "SUCCESS",
+      "latency_ms": 0
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.903721",
+      "event_type": "PENDING_ACTION_CREATED",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "action_id": "35a4f991-c39d-454e-9a18-d8a52058ef9a",
+      "action_type": "add_line",
+      "exact_payload": {
+        "date": "29 Oct 2026",
+        "merchant": "Cafe Mocha",
+        "category": "Meals",
+        "amount": 760.0,
+        "currency": "INR",
+        "project_code": "ATLAS",
+        "notes": "Cafe Mocha lunch, 2 x veg thali, 760 INR. 29 Oct 2026. Project ATLAS.",
+        "justification": null
+      },
+      "payload_hash": "cf095f9ef1faeac16d9083fd188532c968f0dfc012699a7e8adb8851c204fe14",
+      "status": "REJECTED",
+      "exception_flag": false,
+      "policy_violation_details": null,
+      "expires_at": "2026-11-06T12:15:42.903721"
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.905287",
+      "event_type": "HUMAN_REJECTION",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "action_id": "35a4f991-c39d-454e-9a18-d8a52058ef9a",
+      "decision": "REJECTED",
+      "rejection_reason": "Expense claimed on another client card"
+    },
+    {
+      "timestamp": "2026-11-06T12:05:42.904765",
+      "event_type": "RUN_COMPLETED",
+      "trace_id": "1ffdaf3d-dfdb-428c-836c-d8bb92d87d48",
+      "final_status": "Rejected",
+      "total_latency_ms": 9,
+      "total_tokens": 400,
+      "report_id": null,
+      "outcome_summary": "User rejected the expense proposal: Expense claimed on another client card"
+    }
+  ]
+}

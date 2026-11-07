@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="fmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.18" />
+    </filter>
+  </defs>
+  <!-- Background Rounded App Tile -->
+  <rect width="64" height="64" rx="16" fill="url(#fmGrad)" />
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="15.25" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5" />
+
+  <!-- Document Body -->
+  <path d="M18 13C16.3431 13 15 14.3431 15 16V48C15 49.6569 16.3431 51 18 51H46C47.6569 51 49 49.6569 49 48V24L38 13H18Z" fill="#FFFFFF" filter="url(#shadow)" />
+  
+  <!-- Document Folded Corner -->
+  <path d="M38 13V22C38 23.1046 38.8954 24 40 24H49L38 13Z" fill="#DBEAFE" />
+
+  <!-- Spreadsheet Grid / Expense Lines -->
+  <!-- Top Title / Header -->
+  <rect x="20" y="27" width="24" height="4" rx="1.5" fill="#2563EB" />
+  
+  <!-- Row 1 -->
+  <rect x="20" y="34" width="11" height="3" rx="1" fill="#94A3B8" />
+  <rect x="34" y="34" width="10" height="3" rx="1" fill="#3B82F6" />
+  
+  <!-- Row 2 -->
+  <rect x="20" y="40" width="13" height="3" rx="1" fill="#94A3B8" />
+  <rect x="36" y="40" width="8" height="3" rx="1" fill="#10B981" />
+
+  <!-- AI Sparkle on Top Right -->
+  <path d="M51 6L52.5 10.5L57 12L52.5 13.5L51 18L49.5 13.5L45 12L49.5 10.5L51 6Z" fill="#FBBF24" />
+</svg>
