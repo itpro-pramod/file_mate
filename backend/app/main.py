@@ -74,6 +74,14 @@ app.include_router(intelligence.router)
 app.include_router(policy.router)
 app.include_router(settings_api.router)
 
+# Mount Docs & HTML Presentations as Static Files
+from fastapi.staticfiles import StaticFiles
+import os
+
+docs_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "docs"))
+if os.path.exists(docs_dir):
+    app.mount("/presentations", StaticFiles(directory=docs_dir), name="presentations")
+
 
 @app.get("/")
 def root():
